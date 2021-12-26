@@ -13,3 +13,6 @@ This is a context step that runs before every scenario
 ## Adding two todos.
 * Add todo "first todo"
 * Add todo "second todo"
+
+## Try to add empty todo.
+* Try to add empty todo item

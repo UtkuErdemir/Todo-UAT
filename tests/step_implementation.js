@@ -38,8 +38,17 @@ gauge.customScreenshotWriter = async function () {
 };
 
 step("Add todo <item>", async (item) => {
-    await write(item, into(textBox("Please type the todo name")));
+    const box = await textBox("Please type the todo name");
+    await write(item, into(box));
     alert(`Todo ${item} named is saved.`, async () => await accept());
+    await click("Add");
+    assert.equal(await box.value()==="",true);
+});
+
+step("Try to add empty todo item", async () => {
+    const box = await textBox("Please type the todo name");
+    await write("", into(box));
+    alert(`Todo name cannot be empty.`, async () => await accept());
     await click("Add");
 });
 
