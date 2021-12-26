@@ -53,5 +53,5 @@ step("Try to add empty todo item", async () => {
 });
 
 step("Open todo application", async function () {
-    await goto("localhost:3000");
+    await goto("ue-todo-app-frontend.herokuapp.com");
 });
