@@ -11,8 +11,8 @@ This is a context step that runs before every scenario
 * Open todo application
 
 ## Adding two todos.
-* Add todo "first todo"
-* Add todo "second todo"
+* Add todo "buy some milk"
+* Add todo "buy some apple"
 
 ## Try to add empty todo.
 * Try to add empty todo item

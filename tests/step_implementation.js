@@ -11,7 +11,10 @@ const {
     into,
     textBox,
     alert,
-    accept
+    accept,
+    title,
+    text,
+    waitFor
 } = require('taiko');
 const assert = require("assert");
 const headless = process.env.headless_chrome.toLowerCase() === 'true';
@@ -42,7 +45,9 @@ step("Add todo <item>", async (item) => {
     await write(item, into(box));
     alert(`Todo ${item} named is saved.`, async () => await accept());
     await click("Add");
+    await waitFor(5000);
     assert.equal(await box.value()==="",true);
+    assert.equal((await (await text(item)).exists()),true);
 });
 
 step("Try to add empty todo item", async () => {
@@ -54,4 +59,5 @@ step("Try to add empty todo item", async () => {
 
 step("Open todo application", async function () {
     await goto("ue-todo-app-frontend.herokuapp.com");
+    assert.equal(await title()==="Todo App Frontend",true);
 });
