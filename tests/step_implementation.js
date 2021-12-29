@@ -45,10 +45,13 @@ step("Add todo <item>", async (item) => {
     await write(item, into(box));
     alert(`Todo ${item} named is saved.`, async () => await accept());
     await click("Add");
-    await waitFor(5000);
+    await waitFor(3000);
     assert.equal(await box.value()==="",true);
-    assert.equal((await (await text(item)).exists()),true);
 });
+
+step("Check todo list for <item>", async(item)=>{
+    assert.equal((await (await text(item)).exists()),true);
+})
 
 step("Try to add empty todo item", async () => {
     const box = await textBox("Please type the todo name");
@@ -59,5 +62,8 @@ step("Try to add empty todo item", async () => {
 
 step("Open todo application", async function () {
     await goto("ue-todo-app-frontend.herokuapp.com");
-    assert.equal(await title()==="Todo App Frontend",true);
 });
+
+step("Check application title", async function(){
+    assert.equal(await title()==="Todo App Frontend",true);
+})

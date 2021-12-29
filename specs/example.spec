@@ -9,10 +9,13 @@ To execute this specification, use
 
 This is a context step that runs before every scenario
 * Open todo application
+* Check application title
 
 ## Adding two todos.
 * Add todo "buy some milk"
+* Check todo list for "buy some milk"
 * Add todo "buy some apple"
+* Check todo list for "buy some apple"
 
 ## Try to add empty todo.
 * Try to add empty todo item
